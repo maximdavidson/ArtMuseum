@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lexend+Deca:wght@100..900&display=swap');
+/* font-family: "Inter", sans-serif; */
+
+body {
+	font-family: 'Lexend Deca', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	margin-left: 100px;
+	margin-right: 100px;
+}
