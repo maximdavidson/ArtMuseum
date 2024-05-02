@@ -3,6 +3,10 @@ import '../../App.css';
 import axios from 'axios';
 import c from './Works.module.css';
 import Icon from '@assets/Icons.png';
+import IconActive from '@assets/Icons-active.png';
+import { addFavorite } from '../../store/favoritesSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
 
 interface Artwork {
 	title: string;
@@ -12,8 +16,10 @@ interface Artwork {
 
 function Works() {
 	const [artworks, setArtworks] = useState<Artwork[]>([]);
+	const favorites = useSelector((state: RootState) => state.favorites);
 	const page = 1;
 	const totalPages = 9;
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		if (page <= totalPages) {
@@ -27,6 +33,16 @@ function Works() {
 				});
 		}
 	}, [page]);
+
+	const addToFavorites = (artwork: Artwork) => {
+		if (!favorites.find((fav: Artwork) => fav.image_id === artwork.image_id)) {
+			dispatch(addFavorite(artwork));
+		}
+	};
+
+	const isFavorite = (artwork: Artwork) => {
+		return favorites.find((fav: Artwork) => fav.image_id === artwork.image_id);
+	};
 
 	return (
 		<div className={`${c.wrapper} container`}>
@@ -48,7 +64,11 @@ function Works() {
 								<p className={c.work_text}>Public</p>
 							</div>
 							<div className={c.icon_side}>
-								<img src={Icon} alt="Save Icon" />
+								<img
+									src={isFavorite(artwork) ? IconActive : Icon}
+									alt="Save Icon"
+									onClick={() => addToFavorites(artwork)}
+								/>
 							</div>
 						</div>
 					</div>

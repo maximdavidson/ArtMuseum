@@ -4,6 +4,10 @@ import axios from 'axios';
 import c from './Topics.module.css';
 import PaginationComponent from './PaginationComponent';
 import Icon from '@assets/Icons.png';
+import IconActive from '@assets/Icons-active.png';
+import { addFavorite } from '../../store/favoritesSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
 
 interface Artwork {
 	title: string;
@@ -15,6 +19,8 @@ function Topics() {
 	const [artworks, setArtworks] = useState<Artwork[]>([]);
 	const [page, setPage] = useState(1);
 	const totalPages = 4;
+	const favorites = useSelector((state: RootState) => state.favorites);
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		if (page <= totalPages) {
@@ -33,6 +39,16 @@ function Topics() {
 		if (newPage >= 1 && newPage <= totalPages) {
 			setPage(newPage);
 		}
+	};
+
+	const addToFavorites = (artwork: Artwork) => {
+		if (!favorites.find((fav: Artwork) => fav.image_id === artwork.image_id)) {
+			dispatch(addFavorite(artwork));
+		}
+	};
+
+	const isFavorite = (artwork: Artwork) => {
+		return favorites.find((fav: Artwork) => fav.image_id === artwork.image_id);
 	};
 
 	return (
@@ -54,7 +70,11 @@ function Topics() {
 								<p className={c.work_text}>Public</p>
 							</div>
 							<div className={c.icon_side}>
-								<img src={Icon} alt="Save Icon" />
+								<img
+									src={isFavorite(artwork) ? IconActive : Icon}
+									alt="Save Icon"
+									onClick={() => addToFavorites(artwork)}
+								/>
 							</div>
 						</div>
 					</div>
