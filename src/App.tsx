@@ -13,14 +13,21 @@ function App() {
 		<ErrorBoundary>
 			<div className="wrapper">
 				<Header />
-				<Search />
-				<Topics />
-				<Works />
-				<Footer />
 				<Routes>
+					<Route
+						path="/"
+						element={
+							<>
+								<Search />
+								<Topics />
+								<Works />
+							</>
+						}
+					/>
 					<Route path="/favorite" element={<Favorite />} />
 					{/* <Route path="/settings" element={<Settings />} /> */}
 				</Routes>
+				<Footer />
 			</div>
 		</ErrorBoundary>
 	);
