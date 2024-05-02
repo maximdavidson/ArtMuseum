@@ -1,0 +1,80 @@
+.wrapper {
+	margin-top: 120px;
+	margin-bottom: 120px;
+}
+
+.title {
+	font-size: 16px;
+	font-weight: 400;
+	color: rgba(224, 164, 73, 1);
+	line-height: 20px;
+	text-align: center;
+}
+
+.subtitle {
+	margin-top: -20px;
+	margin-bottom: 40px;
+	font-size: 32px;
+	font-weight: 400;
+	line-height: 40px;
+	text-align: center;
+}
+
+.selection {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 20px;
+	width: 100%;
+}
+
+.artwork {
+	display: flex;
+	gap: 10px;
+	background: rgba(255, 255, 255, 1);
+	border: 1px solid rgba(240, 241, 241, 1);
+}
+
+.image {
+	padding: 25px 16px 25px 13px;
+	width: 80px;
+	height: 80px;
+	object-fit: cover;
+	aspect-ratio: 1 / 1;
+}
+
+.artworkInfo {
+	display: flex;
+	align-items: center;
+}
+
+.work_title {
+	font-size: 17px;
+	font-weight: 500;
+	line-height: 16px;
+}
+
+.artist_title {
+	color: rgba(224, 164, 73, 1);
+	font-size: 15px;
+	font-weight: 400;
+	margin-top: -8px;
+	line-height: 16px;
+	/* white-space: nowrap; */
+}
+
+.work_text {
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 16px;
+	/* white-space: nowrap; */
+}
+
+.text_side {
+	padding-right: 90px;
+}
+
+.icon_side img {
+	cursor: pointer;
+	width: 49px;
+	padding-right: 16px;
+}
