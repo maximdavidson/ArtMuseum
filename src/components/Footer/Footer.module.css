@@ -1,0 +1,10 @@
+.wrapper {
+	background: rgba(255, 255, 255, 1);
+	padding-top: 32px;
+	padding-bottom: 32px;
+}
+
+.footer_wrap {
+	display: flex;
+	justify-content: space-between;
+}
