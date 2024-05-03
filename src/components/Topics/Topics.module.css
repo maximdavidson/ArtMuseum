@@ -90,6 +90,22 @@
 	font-weight: 700;
 	font-size: 15px;
 	line-height: 26px;
+	margin-bottom: 0;
+	margin-top: -8px;
+}
+
+.more_text {
+	text-decoration: none;
+	margin-top: 0;
+}
+
+.more_text a {
+	text-decoration: none;
+}
+
+.more_text a:hover,
+.more_text a:focus {
+	opacity: 0.7;
 }
 
 .text_side {
@@ -99,4 +115,18 @@
 .icon_side img {
 	cursor: pointer;
 	padding-right: 24px;
+}
+
+@media (max-width: 431px) {
+	.selection img {
+		max-width: 300px;
+		margin-left: 35px;
+	}
+
+	.artworkInfo {
+		top: 90%;
+		left: 54%;
+		min-width: 334px;
+		max-height: 132px;
+	}
 }

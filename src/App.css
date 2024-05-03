@@ -23,3 +23,10 @@ h6,
 a {
 	color: rgba(57, 57, 57, 1);
 }
+
+@media (max-width: 431px) {
+	.container {
+		margin-left: 30px;
+		margin-right: 30px;
+	}
+}

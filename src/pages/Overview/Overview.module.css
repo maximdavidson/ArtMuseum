@@ -1,0 +1,43 @@
+.wrapper {
+	display: flex;
+	margin-top: 120px;
+	margin-bottom: 120px;
+	gap: 50px;
+}
+
+.image {
+	max-width: 397px;
+}
+
+.title {
+	font-size: 32px;
+	font-weight: 400;
+	line-height: 40px;
+}
+
+.artist_title {
+	margin-top: 0;
+	font-size: 24px;
+	font-weight: 400;
+	line-height: 30px;
+	color: rgba(224, 164, 73, 1);
+}
+
+@media (max-width: 431px) {
+	.wrapper {
+		flex-direction: column;
+	}
+
+	.image {
+		max-width: 300px;
+		margin-left: 30px;
+	}
+
+	.title {
+		font-size: 26px;
+	}
+
+	.artist_title {
+		font-size: 18px;
+	}
+}

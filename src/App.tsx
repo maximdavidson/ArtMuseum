@@ -7,6 +7,7 @@ import Search from './components/Search/Search';
 import Topics from './components/Topics/Topics';
 import Works from './components/Works/Works';
 import Footer from './components/Footer/Footer';
+import Overview from './pages/Overview/Overview';
 import store from './store/store';
 import { Provider } from 'react-redux';
 
@@ -28,7 +29,7 @@ function App() {
 							}
 						/>
 						<Route path="/favorite" element={<Favorite />} />
-						{/* <Route path="/settings" element={<Settings />} /> */}
+						<Route path="/overview/:id" element={<Overview />} />
 					</Routes>
 					<Footer />
 				</div>
