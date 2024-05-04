@@ -15,6 +15,11 @@ interface Artwork {
 	title: string;
 	image_id: string;
 	artist_title: string;
+	date_display: string;
+	artist_display: string;
+	dimensions: string;
+	credit_line: string;
+	department_title: string;
 }
 
 function Topics() {
@@ -75,7 +80,6 @@ function Topics() {
 								<h2 className={c.work_title}>{artwork.title}</h2>
 								<p className={c.artist_title}>{artwork.artist_title}</p>
 								<div className={c.info_text}>
-									<p className={c.work_text}>Public</p>
 									<p className={c.more_text}>
 										<NavLink
 											to={`/overview/${artwork.image_id}`}

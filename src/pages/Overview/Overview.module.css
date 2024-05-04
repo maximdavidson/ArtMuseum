@@ -23,6 +23,26 @@
 	color: rgba(224, 164, 73, 1);
 }
 
+.date_display {
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 20px;
+}
+
+.over_wrapp {
+	margin-top: 172px;
+}
+
+.over_title {
+	font-size: 32px;
+	font-weight: 400;
+	line-height: 40px;
+}
+
+.list span {
+	color: rgba(224, 164, 73, 1);
+}
+
 @media (max-width: 431px) {
 	.wrapper {
 		flex-direction: column;

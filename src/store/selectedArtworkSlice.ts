@@ -4,6 +4,11 @@ interface Artwork {
 	title: string;
 	image_id: string;
 	artist_title: string;
+	date_display: string;
+	artist_display: string;
+	dimensions: string;
+	credit_line: string;
+	department_title: string;
 }
 
 interface SelectedArtworkState {

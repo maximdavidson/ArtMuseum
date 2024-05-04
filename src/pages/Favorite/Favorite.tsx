@@ -6,11 +6,18 @@ import '../../App.css';
 import Delete from '@assets/delete.png';
 import { useDispatch } from 'react-redux';
 import { removeFavorite } from '../../store/favoritesSlice';
+import { selectArtwork } from 'src/store/selectedArtworkSlice';
+import { NavLink } from 'react-router-dom';
 
 interface Artwork {
 	title: string;
 	image_id: string;
 	artist_title: string;
+	date_display: string;
+	artist_display: string;
+	dimensions: string;
+	credit_line: string;
+	department_title: string;
 }
 
 function Favorite() {
@@ -18,6 +25,10 @@ function Favorite() {
 	const dispatch = useDispatch();
 	const removeFromFavorites = (artwork: Artwork) => {
 		dispatch(removeFavorite(artwork));
+	};
+
+	const handleMoreClick = (artwork: Artwork) => {
+		dispatch(selectArtwork(artwork));
 	};
 
 	return (
@@ -44,7 +55,14 @@ function Favorite() {
 							<div className={c.text_side}>
 								<h2 className={c.work_title}>{artwork.title}</h2>
 								<p className={c.artist_title}>{artwork.artist_title}</p>
-								<p className={c.work_text}>Public</p>
+								<p className={c.more_text}>
+									<NavLink
+										to={`/overview/${artwork.image_id}`}
+										onClick={() => handleMoreClick(artwork)}
+									>
+										More
+									</NavLink>
+								</p>
 							</div>
 						</div>
 						<div

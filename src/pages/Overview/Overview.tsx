@@ -19,12 +19,29 @@ function Overview() {
 				alt={selectedArtwork.title}
 				className={c.image}
 			/>
-			<div className={c.text_side}>
-				<h1 className={c.title}>{selectedArtwork.title}</h1>
-				<p className={c.artist_title}>{selectedArtwork.artist_title}</p>
-			</div>
+			<div>
+				<div className={c.text_side}>
+					<h1 className={c.title}>{selectedArtwork.title}</h1>
+					<p className={c.artist_title}>{selectedArtwork.artist_title}</p>
+					<p className={c.date_display}>{selectedArtwork.date_display}</p>
+				</div>
 
-			{/* <p className={c.date}>{selectedArtwork.date}</p> */}
+				<div className={c.over_wrapp}>
+					<p className={c.over_title}>Overview</p>
+					<p className={c.list}>
+						<span>Artist nacionality:</span> {selectedArtwork.artist_display}
+					</p>
+					<p className={c.list}>
+						<span>Dimensions Sheet:</span> {selectedArtwork.dimensions}
+					</p>
+					<p className={c.list}>
+						<span>Credit Line:</span> {selectedArtwork.credit_line}
+					</p>
+					<p className={c.list}>
+						<span>Department:</span> {selectedArtwork.department_title}
+					</p>
+				</div>
+			</div>
 		</div>
 	);
 }

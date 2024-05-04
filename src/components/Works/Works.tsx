@@ -5,13 +5,20 @@ import c from './Works.module.css';
 import Icon from '@assets/Icons.png';
 import IconActive from '@assets/Icons-active.png';
 import { addFavorite } from '../../store/favoritesSlice';
+import { selectArtwork } from 'src/store/selectedArtworkSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
+import { NavLink } from 'react-router-dom';
 
 interface Artwork {
 	title: string;
 	image_id: string;
 	artist_title: string;
+	date_display: string;
+	artist_display: string;
+	dimensions: string;
+	credit_line: string;
+	department_title: string;
 }
 
 function Works() {
@@ -44,6 +51,10 @@ function Works() {
 		return favorites.find((fav: Artwork) => fav.image_id === artwork.image_id);
 	};
 
+	const handleMoreClick = (artwork: Artwork) => {
+		dispatch(selectArtwork(artwork));
+	};
+
 	return (
 		<div className={`${c.wrapper} container`}>
 			<h4 className={c.title}>Here some more</h4>
@@ -61,7 +72,14 @@ function Works() {
 							<div className={c.text_side}>
 								<h2 className={c.work_title}>{artwork.title}</h2>
 								<p className={c.artist_title}>{artwork.artist_title}</p>
-								<p className={c.work_text}>Public</p>
+								<p className={c.more_text}>
+									<NavLink
+										to={`/overview/${artwork.image_id}`}
+										onClick={() => handleMoreClick(artwork)}
+									>
+										More
+									</NavLink>
+								</p>
 							</div>
 							<div className={c.icon_side}>
 								<img
