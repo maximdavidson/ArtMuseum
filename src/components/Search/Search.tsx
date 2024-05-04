@@ -1,5 +1,6 @@
 import c from './Search.module.css';
 import SearchBar from './SearchBar';
+import SearchResult from './SearchResult';
 
 function Search() {
 	return (
@@ -9,6 +10,7 @@ function Search() {
 				Here!
 			</p>
 			<SearchBar />
+			<SearchResult />
 		</div>
 	);
 }

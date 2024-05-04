@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import favoritesReducer from './favoritesSlice';
 import selectedArtworkReducer from './selectedArtworkSlice';
+import searchResultReducer from './searchResultSlice';
 
 const preloadedState = {
 	favorites: JSON.parse(localStorage.getItem('favorites') || '[]'),
@@ -10,6 +11,7 @@ const store = configureStore({
 	reducer: {
 		favorites: favoritesReducer,
 		selectedArtwork: selectedArtworkReducer,
+		searchResult: searchResultReducer,
 	},
 	preloadedState,
 });
