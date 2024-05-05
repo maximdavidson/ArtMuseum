@@ -117,6 +117,17 @@
 	padding-right: 24px;
 }
 
+@media (max-width: 900px) {
+	.selection img {
+		margin-left: 130px;
+	}
+
+	.artworkInfo {
+		top: 95%;
+		left: 63%;
+	}
+}
+
 @media (max-width: 431px) {
 	.selection img {
 		max-width: 300px;

@@ -78,6 +78,12 @@
 	margin: 1em 0;
 }
 
+@media (max-width: 900px) {
+	.small_wrap {
+		grid-gap: 200px;
+	}
+}
+
 @media (max-width: 431px) {
 	.small_wrap {
 		grid-gap: 220px;

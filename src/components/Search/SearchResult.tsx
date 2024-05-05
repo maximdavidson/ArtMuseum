@@ -4,9 +4,9 @@ import { setResults } from 'src/store/searchResultSlice';
 import { selectArtwork } from 'src/store/selectedArtworkSlice';
 import c from './Search.module.css';
 import { RootState } from '../../store/store';
-import { NavLink } from 'react-router-dom';
 
 interface Artwork {
+	id: number;
 	title: string;
 	image_id: string;
 	artist_title: string;
@@ -44,16 +44,18 @@ function SearchResult() {
 
 	return (
 		<div className={c.results}>
-			{results.map((result) => (
-				<NavLink
-					to={`/overview/${result.image_id}`}
-					key={result.image_id}
-					className={c.result}
-					onClick={() => handleArtworkClick(result)}
-				>
-					<h2 className={c.result_title}>{result.title}</h2>
-				</NavLink>
-			))}
+			{results.map((result) => {
+				console.log(result);
+				return (
+					<div
+						key={result.id}
+						className={c.result}
+						onClick={() => handleArtworkClick(result)}
+					>
+						<h2 className={c.result_title}>{result.title}</h2>
+					</div>
+				);
+			})}
 		</div>
 	);
 }

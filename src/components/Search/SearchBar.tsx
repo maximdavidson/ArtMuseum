@@ -26,7 +26,7 @@ function SearchBar() {
 			}
 			dispatch(setSearchTerm(localSearchTerm));
 			setError('');
-			console.log('Поиск выполнен:', localSearchTerm); // Проверка дебаунса
+			//console.log('Поиск выполнен:', localSearchTerm); // Проверка дебаунса
 		}, 1000);
 	};
 

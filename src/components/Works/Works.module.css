@@ -86,6 +86,70 @@
 	opacity: 0.7;
 }
 
+@media (max-width: 900px) {
+	.wrapper {
+		margin-top: 60px;
+		margin-bottom: 60px;
+	}
+
+	.title {
+		font-size: 12px;
+		line-height: 16px;
+	}
+
+	.subtitle {
+		margin-top: -10px;
+		margin-bottom: 20px;
+		font-size: 24px;
+		line-height: 28px;
+	}
+
+	.selection {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.artwork {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.image {
+		padding: 12px 8px;
+		width: 100px;
+		height: 100px;
+	}
+
+	.artworkInfo {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.work_title {
+		font-size: 13px;
+		line-height: 14px;
+	}
+
+	.artist_title {
+		font-size: 11px;
+		margin-top: -4px;
+		line-height: 12px;
+	}
+
+	.work_text {
+		font-size: 11px;
+		line-height: 12px;
+	}
+
+	.text_side {
+		padding-right: 45px;
+	}
+
+	.icon_side img {
+		width: 24px;
+		padding-right: 8px;
+	}
+}
+
 @media (max-width: 431px) {
 	.wrapper {
 		margin-top: 60px;

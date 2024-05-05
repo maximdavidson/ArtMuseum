@@ -106,6 +106,55 @@
 	opacity: 0.7;
 }
 
+@media (max-width: 900px) {
+	.selection {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.artwork {
+		width: 300px;
+		flex-direction: column;
+		align-items: center;
+		margin-left: 3px;
+	}
+
+	.image {
+		padding: 12px 8px;
+		width: 100px;
+		height: 100px;
+	}
+
+	.artworkInfo {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.work_title {
+		font-size: 13px;
+		line-height: 14px;
+	}
+
+	.artist_title {
+		font-size: 11px;
+		margin-top: -4px;
+		line-height: 12px;
+	}
+
+	.work_text {
+		font-size: 11px;
+		line-height: 12px;
+	}
+
+	.text_side {
+		padding-right: 45px;
+	}
+
+	.icon_side img {
+		width: 24px;
+		padding-right: 8px;
+	}
+}
+
 @media (max-width: 431px) {
 	.title {
 		font-size: 44px;
