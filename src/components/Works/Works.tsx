@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react';
-import '../../App.css';
+import 'src/App.css';
 import axios from 'axios';
 import c from './Works.module.css';
 import Icon from '@assets/Icons.png';
 import IconActive from '@assets/Icons-active.png';
-import { addFavorite } from '../../store/favoritesSlice';
+import { addFavorite } from 'src/store/favoritesSlice';
 import { selectArtwork } from 'src/store/selectedArtworkSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
+import { RootState } from 'src/store/store';
 import { NavLink } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { TOTAL_PAGES } from 'src/constants/constant';
 
 interface Artwork {
 	title: string;
@@ -25,7 +28,7 @@ function Works() {
 	const [artworks, setArtworks] = useState<Artwork[]>([]);
 	const favorites = useSelector((state: RootState) => state.favorites);
 	const page = 1;
-	const totalPages = 9;
+	const totalPages = TOTAL_PAGES;
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -40,6 +43,11 @@ function Works() {
 				});
 		}
 	}, [page]);
+
+	useEffect(() => {
+		AOS.init();
+		AOS.refresh();
+	}, []);
 
 	const addToFavorites = (artwork: Artwork) => {
 		if (!favorites.find((fav: Artwork) => fav.image_id === artwork.image_id)) {
@@ -57,10 +65,14 @@ function Works() {
 
 	return (
 		<div className={`${c.wrapper} container`}>
-			<h4 className={c.title}>Here some more</h4>
-			<h1 className={c.subtitle}>Other works for you</h1>
+			<h4 data-aos="fade-up" className={c.title}>
+				Here some more
+			</h4>
+			<h1 data-aos="fade-up" className={c.subtitle}>
+				Other works for you
+			</h1>
 
-			<div className={c.selection}>
+			<div data-aos="fade-up" className={c.selection}>
 				{artworks.map((artwork: Artwork, index: number) => (
 					<div key={index} className={c.artwork}>
 						<img

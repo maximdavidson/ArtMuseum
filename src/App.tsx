@@ -10,10 +10,12 @@ import Footer from './components/Footer/Footer';
 import Overview from './pages/Overview/Overview';
 import store from './store/store';
 import { Provider } from 'react-redux';
+import Loader from './components/Loader/Loader';
 
 function App() {
 	return (
 		<Provider store={store}>
+			<Loader />
 			<ErrorBoundary>
 				<div className="wrapper">
 					<Header />

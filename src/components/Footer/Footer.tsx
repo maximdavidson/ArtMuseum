@@ -1,4 +1,4 @@
-import '../../App.css';
+import 'src/App.css';
 import c from './Footer.module.css';
 import logo from '@assets/museum-logo-2.png';
 import logoMod from '@assets/logo-modsen.png';

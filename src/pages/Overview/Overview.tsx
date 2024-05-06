@@ -1,7 +1,7 @@
 import c from './Overview.module.css';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
-import '../../App.css';
+import { RootState } from 'src/store/store';
+import 'src/App.css';
 
 function Overview() {
 	const selectedArtwork = useSelector(

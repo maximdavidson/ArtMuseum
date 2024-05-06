@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import '../../App.css';
+import { useState } from 'react';
+import 'src/App.css';
 import c from './Header.module.css';
 import logo from '@assets/museum-logo.png';
 import bookmark from '@assets/bookmark.png';

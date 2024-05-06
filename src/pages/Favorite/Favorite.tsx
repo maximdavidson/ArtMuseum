@@ -1,11 +1,11 @@
 import c from './Favorite.module.css';
 import group from '@assets/Group746.png';
-import { RootState } from '../../store/store';
+import { RootState } from 'src/store/store';
 import { useSelector } from 'react-redux';
-import '../../App.css';
+import 'src/App.css';
 import Delete from '@assets/delete.png';
 import { useDispatch } from 'react-redux';
-import { removeFavorite } from '../../store/favoritesSlice';
+import { removeFavorite } from 'src/store/favoritesSlice';
 import { selectArtwork } from 'src/store/selectedArtworkSlice';
 import { NavLink } from 'react-router-dom';
 

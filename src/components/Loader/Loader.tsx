@@ -1,24 +1,28 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import c from './Loader.module.css';
+import LogoMuseum from '@assets/museum-logo-2.png';
 
-interface LoaderProps {
-	src: string;
-	alt: string;
-}
-
-function Loader({ src, alt }: LoaderProps) {
+function Loader() {
 	const [loading, setLoading] = useState(true);
 
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setLoading(false);
+		}, 4000);
+
+		document.body.style.overflow = loading ? 'hidden' : 'auto';
+
+		return () => clearTimeout(timer);
+	}, [loading]);
+
+	if (!loading) {
+		return null;
+	}
+
 	return (
-		<div>
-			{loading && <div>Загрузка...</div>}
-			<img
-				src={src}
-				alt={alt}
-				onLoad={() => {
-					setTimeout(() => setLoading(false), 2000);
-				}}
-				style={loading ? { display: 'none' } : {}}
-			/>
+		<div className={c.loader}>
+			<img className={c.logo} src={LogoMuseum} alt="logo" />
+			<div className={c.spinner}></div>
 		</div>
 	);
 }

@@ -1,15 +1,18 @@
 import { useState, useEffect } from 'react';
-import '../../App.css';
+import 'src/App.css';
 import axios from 'axios';
 import c from './Topics.module.css';
 import PaginationComponent from './PaginationComponent';
 import Icon from '@assets/Icons.png';
 import IconActive from '@assets/Icons-active.png';
-import { addFavorite } from '../../store/favoritesSlice';
+import { addFavorite } from 'src/store/favoritesSlice';
 import { selectArtwork } from 'src/store/selectedArtworkSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { NavLink } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { TOTAL_PAGES } from 'src/constants/constant';
 
 interface Artwork {
 	title: string;
@@ -25,7 +28,7 @@ interface Artwork {
 function Topics() {
 	const [artworks, setArtworks] = useState<Artwork[]>([]);
 	const [page, setPage] = useState(1);
-	const totalPages = 4;
+	const totalPages = TOTAL_PAGES;
 	const favorites = useSelector((state: RootState) => state.favorites);
 
 	const dispatch = useDispatch();
@@ -42,6 +45,11 @@ function Topics() {
 				});
 		}
 	}, [page]);
+
+	useEffect(() => {
+		AOS.init();
+		AOS.refresh();
+	}, []);
 
 	const handlePageChange = (newPage: number) => {
 		if (newPage >= 1 && newPage <= totalPages) {
@@ -64,7 +72,7 @@ function Topics() {
 	};
 
 	return (
-		<div className={`${c.wrapper} container`}>
+		<div data-aos="fade-up" className={`${c.wrapper} container`}>
 			<h4 className={c.title}>Topics for you</h4>
 			<h1 className={c.subtitle}>Our special gallery</h1>
 

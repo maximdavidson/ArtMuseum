@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setResults } from 'src/store/searchResultSlice';
 import { selectArtwork } from 'src/store/selectedArtworkSlice';
 import c from './Search.module.css';
-import { RootState } from '../../store/store';
+import { RootState } from 'src/store/store';
 
 interface Artwork {
 	id: number;
