@@ -75,6 +75,10 @@
 		font-size: 34px;
 		font-weight: 700;
 	}
+
+	.results {
+		width: 500px;
+	}
 }
 
 @media (max-width: 431px) {
@@ -85,5 +89,9 @@
 	.text {
 		font-size: 34px;
 		font-weight: 700;
+	}
+
+	.results {
+		width: 300px;
 	}
 }
