@@ -8,7 +8,7 @@ function Loader() {
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			setLoading(false);
-		}, 4000);
+		}, 3000);
 
 		document.body.style.overflow = loading ? 'hidden' : 'auto';
 

@@ -15,11 +15,13 @@ interface Artwork {
 interface SearchResultState {
 	results: Artwork[];
 	searchTerm: string;
+	sortOrder: string;
 }
 
 const initialState: SearchResultState = {
 	results: [],
 	searchTerm: '',
+	sortOrder: 'asc',
 };
 
 export const searchResultSlice = createSlice({
@@ -32,9 +34,13 @@ export const searchResultSlice = createSlice({
 		setResults: (state, action: PayloadAction<Artwork[]>) => {
 			state.results = action.payload;
 		},
+		setSortOrder: (state, action: PayloadAction<string>) => {
+			state.sortOrder = action.payload;
+		},
 	},
 });
 
-export const { setSearchTerm, setResults } = searchResultSlice.actions;
+export const { setSearchTerm, setResults, setSortOrder } =
+	searchResultSlice.actions;
 
 export default searchResultSlice.reducer;

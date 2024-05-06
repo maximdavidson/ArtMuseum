@@ -22,6 +22,9 @@ function SearchResult() {
 	const searchTerm = useSelector(
 		(state: RootState) => state.searchResult.searchTerm,
 	);
+	const sortOrder = useSelector(
+		(state: RootState) => state.searchResult.sortOrder,
+	);
 	const results = useSelector((state: RootState) => state.searchResult.results);
 
 	useEffect(() => {
@@ -29,14 +32,19 @@ function SearchResult() {
 			fetch(`https://api.artic.edu/api/v1/artworks/search?q=${searchTerm}`)
 				.then((response) => response.json())
 				.then((data) => {
-					const filteredResults = data.data.filter((artwork: Artwork) =>
+					let filteredResults = data.data.filter((artwork: Artwork) =>
 						artwork.title.toLowerCase().includes(searchTerm.toLowerCase()),
+					);
+					filteredResults = filteredResults.sort((a: Artwork, b: Artwork) =>
+						sortOrder === 'asc'
+							? a.title.localeCompare(b.title)
+							: b.title.localeCompare(a.title),
 					);
 					dispatch(setResults(filteredResults));
 				})
 				.catch((error) => console.error(error));
 		}
-	}, [searchTerm, dispatch]);
+	}, [searchTerm, dispatch, sortOrder]);
 
 	const handleArtworkClick = (artwork: Artwork) => {
 		dispatch(selectArtwork(artwork));
@@ -44,18 +52,15 @@ function SearchResult() {
 
 	return (
 		<div className={c.results}>
-			{results.map((result) => {
-				console.log(result);
-				return (
-					<div
-						key={result.id}
-						className={c.result}
-						onClick={() => handleArtworkClick(result)}
-					>
-						<h2 className={c.result_title}>{result.title}</h2>
-					</div>
-				);
-			})}
+			{results.map((result) => (
+				<div
+					key={result.id}
+					className={c.result}
+					onClick={() => handleArtworkClick(result)}
+				>
+					<h2 className={c.result_title}>{result.title}</h2>
+				</div>
+			))}
 		</div>
 	);
 }
