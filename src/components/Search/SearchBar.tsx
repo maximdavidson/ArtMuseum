@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSearchTerm, setSortOrder } from 'src/store/searchResultSlice';
+import {
+	setSearchTerm,
+	setSortOrder,
+	setResults,
+} from 'src/store/searchResultSlice';
 import search from '@assets/search.png';
 import sort from '@assets/icon-sorting.png';
 import c from './Search.module.css';
@@ -18,6 +22,9 @@ function SearchBar() {
 
 	const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setLocalSearchTerm(event.target.value);
+		if (event.target.value === '') {
+			dispatch(setResults([]));
+		}
 	};
 
 	const handleSearchSubmit = (event?: React.FormEvent) => {
